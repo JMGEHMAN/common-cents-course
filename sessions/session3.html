@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session 3: Budgeting Basics — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a><a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a><a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="session-layout">
+  <main class="session-main">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#sessions">Sessions</a><span class="sep">›</span><span>Session 3</span></div>
+
+    <div class="lesson-header">
+      <div class="session-label">Session 3 of 10 · Beginner · ⏱ 40 min</div>
+      <h1>Budgeting Basics 📊</h1>
+      <p>Create your first budget and take control of where every dollar goes.</p>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">🎯</span> What You'll Learn</h2>
+      <div class="steps-list">
+        <div class="step-item"><div class="step-num">1</div><div>What a budget is and why everyone needs one</div></div>
+        <div class="step-item"><div class="step-num">2</div><div>The 50/30/20 budgeting rule</div></div>
+        <div class="step-item"><div class="step-num">3</div><div>How to track your income and expenses</div></div>
+        <div class="step-item"><div class="step-num">4</div><div>What to do when your budget doesn't balance</div></div>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">📖</span> What Is a Budget?</h2>
+      <div class="concept-box">
+        <h4>A Budget Is a Plan for Your Money</h4>
+        <p>A budget tells your money where to go BEFORE you spend it, instead of wondering where it went AFTER. It's not about restricting fun — it's about making sure you have money for what matters most.</p>
+      </div>
+      <div class="tip-box">
+        <h4>💡 Why Budgeting Is a Superpower</h4>
+        <p>People who budget save 15-20% more money than those who don't — not because they earn more, but because they make intentional choices. A budget gives you control, reduces money stress, and helps you reach your goals faster.</p>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">⚡</span> The 50/30/20 Rule</h2>
+      <p style="margin-bottom:1rem;">One of the most popular budgeting frameworks divides your income into three buckets:</p>
+      <div class="key-terms">
+        <div class="key-term">
+          <div class="key-term-icon" style="background:#4f46e5;">50%</div>
+          <div>
+            <div class="key-term-word">Needs (50%)</div>
+            <div class="key-term-def">Essentials: housing, food, utilities, transportation, healthcare. These come first.</div>
+          </div>
+        </div>
+        <div class="key-term">
+          <div class="key-term-icon" style="background:#f59e0b;">30%</div>
+          <div>
+            <div class="key-term-word">Wants (30%)</div>
+            <div class="key-term-def">Fun things: entertainment, dining out, shopping, hobbies. Important for enjoyment!</div>
+          </div>
+        </div>
+        <div class="key-term">
+          <div class="key-term-icon" style="background:#10b981;">20%</div>
+          <div>
+            <div class="key-term-word">Savings & Debt (20%)</div>
+            <div class="key-term-def">Future security: savings, emergency fund, paying off debt, investing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">🧮</span> Budget Calculator</h2>
+      <div class="activity-card">
+        <h3>💰 Try the 50/30/20 Calculator</h3>
+        <p style="margin-bottom:1rem;">Enter your monthly income (allowance, job, etc.) and see how the 50/30/20 rule divides it.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem;">
+          <div><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.3rem;">Monthly Income ($)</label><input class="activity-input" type="number" id="budgetIncome" placeholder="e.g. 200" /></div>
+          <div><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.3rem;">Needs Spending ($)</label><input class="activity-input" type="number" id="budgetNeeds" placeholder="e.g. 100" /></div>
+          <div><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.3rem;">Wants Spending ($)</label><input class="activity-input" type="number" id="budgetWants" placeholder="e.g. 60" /></div>
+          <div><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.3rem;">Savings ($)</label><input class="activity-input" type="number" id="budgetSavings" placeholder="e.g. 40" /></div>
+        </div>
+        <button class="btn btn-accent" onclick="calcBudget()">Calculate My Budget →</button>
+        <div class="activity-result" id="budgetResult"></div>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">📉</span> When the Budget Doesn't Balance</h2>
+      <div class="warning-box">
+        <h4>⚠️ Spending More Than You Earn = Deficit</h4>
+        <p>If your total spending is more than your income, you have a budget deficit. This leads to debt. The fix: either <strong>earn more</strong> or <strong>spend less</strong> — or both!</p>
+      </div>
+      <div class="steps-list">
+        <div class="step-item"><div class="step-num">✂️</div><div><strong>Cut wants first</strong> — Reduce entertainment, dining out, subscriptions</div></div>
+        <div class="step-item"><div class="step-num">🔍</div><div><strong>Find cheaper alternatives</strong> — Cook at home, use free apps instead of paid ones</div></div>
+        <div class="step-item"><div class="step-num">💼</div><div><strong>Earn more</strong> — Find ways to bring in extra income</div></div>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">🎯</span> Take the Quiz!</h2>
+      <div class="card" style="text-align:center;padding:2rem;">
+        <div style="font-size:3rem;margin-bottom:1rem;">🏆</div>
+        <h3>Session 3 Quiz</h3>
+        <p class="text-muted mt-1 mb-2">5 questions · Instant feedback</p>
+        <a href="../quizzes/quiz3.html" class="btn btn-primary btn-lg">Start Quiz →</a>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">📝</span> Session Worksheet</h2>
+      <div class="card" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div style="font-size:2.5rem;">📄</div>
+        <div style="flex:1;"><h3>Budgeting Basics Worksheet</h3><p class="text-muted">Build your first personal budget!</p></div>
+        <a href="../worksheets/worksheet3.html" class="btn btn-outline">Open Worksheet →</a>
+      </div>
+    </div>
+
+    <div class="session-nav-arrows">
+      <a href="session2.html" class="btn btn-outline">← Session 2</a>
+      <a href="session4.html" class="btn btn-primary">Session 4: Saving & Goals →</a>
+    </div>
+  </main>
+
+  <aside class="session-sidebar">
+    <div class="card">
+      <h4 style="margin-bottom:.75rem;">📋 Session Progress</h4>
+      <div class="progress-label"><span>Lesson</span><span id="lessonPct">0%</span></div>
+      <div class="progress-wrap mb-2"><div class="progress-bar" id="lessonBar" style="width:0%"></div></div>
+      <button class="btn btn-accent w-full" id="markDoneBtn" onclick="markDone()">✓ Mark as Complete</button>
+    </div>
+    <div class="card">
+      <h4 style="margin-bottom:.75rem;">📚 All Sessions</h4>
+      <div style="display:flex;flex-direction:column;gap:.4rem;font-size:.88rem;">
+        <a href="session1.html" style="color:var(--text-muted);">① What Is Money?</a>
+        <a href="session2.html" style="color:var(--text-muted);">② Needs vs. Wants</a>
+        <a href="session3.html" style="color:var(--primary);font-weight:700;">③ Budgeting Basics ← You are here</a>
+        <a href="session4.html" style="color:var(--text-muted);">④ Saving & Goals</a>
+        <a href="session5.html" style="color:var(--text-muted);">⑤ Banking 101</a>
+        <a href="session6.html" style="color:var(--text-muted);">⑥ Credit & Debt</a>
+        <a href="session7.html" style="color:var(--text-muted);">⑦ Earning Money</a>
+        <a href="session8.html" style="color:var(--text-muted);">⑧ Investing Intro</a>
+        <a href="session9.html" style="color:var(--text-muted);">⑨ Smart Shopping</a>
+        <a href="session10.html" style="color:var(--text-muted);">⑩ Money Mindset</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+<script src="../scripts/app.js"></script>
+<script>
+let lessonProgress = 0;
+function markDone() {
+  lessonProgress = 100;
+  document.getElementById('lessonBar').style.width = '100%';
+  document.getElementById('lessonPct').textContent = '100%';
+  document.getElementById('markDoneBtn').textContent = '✅ Completed!';
+  document.getElementById('markDoneBtn').disabled = true;
+  markSessionComplete(3);
+}
+window.addEventListener('scroll', () => {
+  const docH = document.body.scrollHeight - window.innerHeight;
+  const pct = Math.min(100, Math.round((window.scrollY / docH) * 100));
+  if (pct > lessonProgress && lessonProgress < 100) {
+    lessonProgress = pct;
+    document.getElementById('lessonBar').style.width = pct + '%';
+    document.getElementById('lessonPct').textContent = pct + '%';
+  }
+});
+</script>
+</body>
+</html>

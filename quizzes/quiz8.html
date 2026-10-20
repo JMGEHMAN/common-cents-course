@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz 8: Investing Intro — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div style="max-width:800px;margin:2rem auto;padding:0 1.25rem;">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../quiz-hub.html">Quizzes</a><span class="sep">›</span>
+    <span>Quiz 8</span>
+  </div>
+
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <div class="badge badge-purple mb-1">Session 8 of 10</div>
+      <h1 style="font-size:1.6rem;">Quiz: Investing Intro</h1>
+      <p class="text-muted mt-1">5 questions · Select the best answer · Instant feedback</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-label">
+      <span id="quizProgressText">Question 1 of 5</span>
+      <span id="quizScore">Score: 0</span>
+    </div>
+    <div class="progress-wrap mb-2">
+      <div class="progress-bar" id="quizProgressBar" style="width:0%"></div>
+    </div>
+
+    <!-- Quiz card -->
+    <div id="quizCard" class="question-card">
+      <div class="question-text" id="questionText">Loading...</div>
+      <div class="options-list" id="optionsList"></div>
+      <div class="feedback-box" id="feedbackBox"></div>
+      <div style="margin-top:1.5rem;text-align:right;">
+        <button class="btn btn-primary" id="nextBtn" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Result card (hidden) -->
+    <div id="quizResult" class="quiz-result hidden">
+      <div class="score-circle">
+        <div class="score-num" id="scoreNum">0/5</div>
+        <div class="score-label">Score</div>
+      </div>
+      <div class="stars" id="scoreStars">⭐</div>
+      <h2>Quiz Complete! 🎉</h2>
+      <p id="scoreMsg" class="text-muted mt-1"></p>
+      <div class="mt-2" style="background:var(--border);border-radius:var(--radius-sm);padding:1rem;">
+        <div class="progress-label"><span>Your Score</span><span id="resultPct">0%</span></div>
+        <div class="progress-wrap"><div class="progress-bar" id="quizProgressBar2" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+        <button class="btn btn-outline" id="restartQuiz">🔄 Try Again</button>
+        <a href="../sessions/session8.html" class="btn btn-primary">← Back to Lesson</a>
+        <a href="../sessions/session9.html" class="btn btn-accent">Next Session →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+const questions = [{question:"What is an 'index fund'?",options:["A fund that only invests in one company", "A basket of many stocks designed to match the performance of a market index", "A type of savings account", "A government bond"],correct:1,explanation:"An index fund tracks a market index (like the S&P 500) by holding all — or most — of its stocks. It offers instant diversification at low cost."},
+    {question:"What is the historical average annual return of the US stock market?",options:["1-2%", "3-4%", "7-10%", "20-25%"],correct:2,explanation:"The S&P 500 has historically returned about 7-10% annually (accounting for inflation). This is why long-term investing beats savings accounts."},
+    {question:"Why is it better to start investing YOUNG rather than waiting?",options:["Younger investors get lower tax rates", "You can take more risk legally as a teen", "More years of compound growth results in dramatically more wealth", "Young people have better investment instincts"],correct:2,explanation:"Compound growth over more years is enormously powerful. A 15-year-old who invests $1,000 will almost certainly have far more at 65 than a 40-year-old who invests the same amount."},
+    {question:"What does 'diversification' mean in investing?",options:["Putting all your money in the best-performing stock", "Spreading investments across many different assets to reduce risk", "Investing only in one industry you know well", "Selling investments when the market drops"],correct:1,explanation:"Diversification spreads risk — if one investment tanks, others may rise. 'Don't put all your eggs in one basket' is the principle."},
+    {question:"If someone promises you a 'guaranteed' 30% investment return with no risk, you should:",options:["Invest everything you have immediately", "Ask for more details about the investment", "Recognize it as a likely scam and avoid it", "Ask your friends if they've heard of it"],correct:2,explanation:"There are NO guaranteed high returns without risk. Promises of guaranteed outsized returns are classic signs of investment fraud (like a Ponzi scheme). Always be skeptical!"}];
+
+// Patch score display
+const origInit = window.initQuiz;
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(questions, 8);
+  // sync second progress bar with result
+  const bar2 = document.getElementById('quizProgressBar2');
+  const obs = new MutationObserver(() => {
+    const pct = document.getElementById('resultPct')?.textContent;
+    if (bar2 && pct) bar2.style.width = pct;
+  });
+  obs.observe(document.getElementById('quizResult') || document.body, {subtree:true, characterData:true, childList:true});
+  
+  // Update score display on each answer
+  document.getElementById('optionsList')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const scoreEl = document.getElementById('quizScore');
+      if (scoreEl) {
+        // count correct answers from feedback boxes
+        const correct = document.querySelectorAll('.option-btn.correct').length;
+      }
+    }, 100);
+  });
+});
+</script>
+</body>
+</html>

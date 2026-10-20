@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Hub — Money Matters</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="index.html#sessions">📚 Sessions</a></li>
+      <li><a href="dashboard.html">📊 Dashboard</a></li>
+      <li><a href="quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">🏠 Home</a>
+    <a href="index.html#sessions">📚 Sessions</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="quiz-hub.html">🎯 Quizzes</a>
+    <a href="worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div style="max-width:1100px;margin:2rem auto;padding:0 1.25rem;">
+
+  <div style="text-align:center;margin-bottom:2.5rem;">
+    <div class="badge badge-purple mb-2" style="font-size:.9rem;padding:.4rem 1.2rem;">🎯 Quiz Center</div>
+    <h1>Test Your Knowledge</h1>
+    <p class="text-muted mt-1" style="max-width:540px;margin:0 auto;">5 questions per quiz · Instant feedback · Scores saved automatically. Complete each session's lesson before taking its quiz for best results!</p>
+  </div>
+
+  <!-- OVERALL SCORE SUMMARY -->
+  <div class="card mb-4" style="background:linear-gradient(135deg,#1e1b4b,#3730a3);color:#fff;border:none;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <h3 style="color:#fff;margin-bottom:.5rem;">🏆 Your Quiz Progress</h3>
+        <p style="color:rgba(255,255,255,.75);font-size:.9rem;">Complete all 10 quizzes to earn your certificate!</p>
+      </div>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-size:2rem;font-weight:800;color:#fff;" id="hubQuizzed">0</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.7);">Quizzes Done</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;font-weight:800;color:#fff;" id="hubAvg">—</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.7);">Avg Score</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2rem;font-weight:800;color:#fff;" id="hubBest">—</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.7);">Best Score</div>
+        </div>
+      </div>
+    </div>
+    <div class="progress-label mt-2" style="color:rgba(255,255,255,.7);"><span>Overall Progress</span><span id="hubPct">0/10</span></div>
+    <div class="progress-wrap" style="height:10px;background:rgba(255,255,255,.2);">
+      <div class="progress-bar" id="hubBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ GRID -->
+  <div class="sessions-grid" id="quizGrid">
+    <!-- Populated by JS -->
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="dashboard.html" class="btn btn-outline">📊 View Full Dashboard</a>
+  </div>
+
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="scripts/app.js"></script>
+<script>
+const quizData = [
+  { num:1, title:'What Is Money?',      icon:'🪙', color:'purple', session:'sessions/session1.html' },
+  { num:2, title:'Needs vs. Wants',     icon:'🛒', color:'green',  session:'sessions/session2.html' },
+  { num:3, title:'Budgeting Basics',    icon:'📊', color:'blue',   session:'sessions/session3.html' },
+  { num:4, title:'Saving & Goals',      icon:'🎯', color:'gold',   session:'sessions/session4.html' },
+  { num:5, title:'Banking 101',         icon:'🏦', color:'blue',   session:'sessions/session5.html' },
+  { num:6, title:'Credit & Debt',       icon:'💳', color:'gold',   session:'sessions/session6.html' },
+  { num:7, title:'Earning Money',       icon:'💼', color:'green',  session:'sessions/session7.html' },
+  { num:8, title:'Investing Intro',     icon:'📈', color:'purple', session:'sessions/session8.html' },
+  { num:9, title:'Smart Shopping',      icon:'🛍️', color:'green',  session:'sessions/session9.html' },
+  { num:10,title:'Money Mindset',       icon:'🌱', color:'gold',   session:'sessions/session10.html'},
+];
+
+function renderQuizHub() {
+  const p = getProgress();
+  const grid = document.getElementById('quizGrid');
+  grid.innerHTML = '';
+  let quizzed = 0, totalScore = 0, bestScore = 0;
+
+  quizData.forEach(q => {
+    const d = p[`session_${q.num}`] || {};
+    const done = d.quizPct !== undefined;
+    if (done) {
+      quizzed++;
+      totalScore += d.quizPct;
+      if (d.quizPct > bestScore) bestScore = d.quizPct;
+    }
+    const scoreHTML = done
+      ? `<div style="display:flex;align-items:center;gap:.5rem;">
+           <div style="width:36px;height:36px;border-radius:50%;background:${d.quizPct>=80?'#22c55e':d.quizPct>=60?'#f59e0b':'#ef4444'};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;">${d.quizPct}%</div>
+           <span style="font-size:.85rem;color:var(--text-muted);">${d.quizScore}/${d.quizTotal} correct</span>
+         </div>`
+      : '<span class="badge" style="background:#f3f4f6;color:#6b7280;">Not yet taken</span>';
+
+    const card = document.createElement('div');
+    card.className = 'session-card';
+    card.innerHTML = `
+      <div class="session-card-top">
+        <div class="session-num">${q.num}</div>
+        <div><h3>${q.icon} ${q.title}</h3><p class="text-muted" style="font-size:.85rem;">5 questions · ~5 min</p></div>
+      </div>
+      <div class="session-card-body">
+        <div>${scoreHTML}</div>
+        ${done && d.quizPct < 80 ? '<p style="font-size:.82rem;color:var(--gold);">💡 Review the lesson and try again to improve your score!</p>' : ''}
+        ${done && d.quizPct >= 80 ? '<p style="font-size:.82rem;color:var(--accent);">✅ Great score! You mastered this topic.</p>' : ''}
+      </div>
+      <div class="session-card-footer">
+        <a href="${q.session}" class="btn btn-sm btn-outline">📖 Review Lesson</a>
+        <a href="quizzes/quiz${q.num}.html" class="btn btn-sm ${done ? 'btn-outline' : 'btn-primary'}">${done ? '🔄 Retry' : '🎯 Take Quiz'}</a>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  document.getElementById('hubQuizzed').textContent = quizzed;
+  document.getElementById('hubAvg').textContent = quizzed ? Math.round(totalScore/quizzed) + '%' : '—';
+  document.getElementById('hubBest').textContent = quizzed ? bestScore + '%' : '—';
+  document.getElementById('hubPct').textContent = quizzed + '/10';
+  document.getElementById('hubBar').style.width = Math.round((quizzed/10)*100) + '%';
+}
+
+document.addEventListener('DOMContentLoaded', renderQuizHub);
+</script>
+</body>
+</html>

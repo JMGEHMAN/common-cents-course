@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session 4: Saving & Goals — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a><a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a><a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="session-layout">
+  <main class="session-main">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><a href="../index.html#sessions">Sessions</a><span class="sep">›</span><span>Session 4</span></div>
+
+    <div class="lesson-header">
+      <div class="session-label">Session 4 of 10 · Intermediate · ⏱ 40 min</div>
+      <h1>Session 4: Saving & Goals 🎯</h1>
+      <p>Turn your dreams into a savings plan — and watch compound interest do the heavy lifting.</p>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">🎯</span> What You'll Learn</h2>
+      <div class="steps-list">
+        <div class="step-item"><div class="step-num">1</div><div>The difference between short-term and long-term savings goals</div></div>
+        <div class="step-item"><div class="step-num">2</div><div>How compound interest multiplies your money over time</div></div>
+        <div class="step-item"><div class="step-num">3</div><div>The 'pay yourself first' rule</div></div>
+        <div class="step-item"><div class="step-num">4</div><div>How to set SMART savings goals</div></div>
+      </div>
+    </div>
+
+
+    <div class="lesson-section">
+      <h2><span class="icon">📖</span> Why Saving Matters</h2>
+      <div class="concept-box">
+        <h4>Saving = Delayed Gratification</h4>
+        <p>Saving means choosing <em>not</em> to spend money now so you can have more later. It sounds simple, but it's one of the hardest — and most rewarding — financial habits to build. The good news: once you start, it becomes a superpower!</p>
+      </div>
+      <div class="tip-box">
+        <h4>💡 Pay Yourself First</h4>
+        <p>The single best saving habit: set aside your savings amount <em>before</em> you spend anything else. Treat saving like a bill that must be paid. Even $1 a day becomes $365 in a year — plus interest!</p>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">⏳</span> Short-Term vs. Long-Term Goals</h2>
+      <div class="key-terms">
+        <div class="key-term">
+          <div class="key-term-icon">🛒</div>
+          <div><div class="key-term-word">Short-Term Goals (0–1 year)</div>
+          <div class="key-term-def">Something you're saving for soon — a new game, birthday gift, trip. Usually under $500.</div></div>
+        </div>
+        <div class="key-term">
+          <div class="key-term-icon">🏡</div>
+          <div><div class="key-term-word">Long-Term Goals (1–10+ years)</div>
+          <div class="key-term-def">Bigger dreams — a car, college, starting a business. Requires patience and consistent saving.</div></div>
+        </div>
+        <div class="key-term">
+          <div class="key-term-icon">🚨</div>
+          <div><div class="key-term-word">Emergency Fund</div>
+          <div class="key-term-def">3–6 months of expenses saved for unexpected events — job loss, car repair, medical bills.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">🌱</span> The Magic of Compound Interest</h2>
+      <div class="concept-box">
+        <h4>Interest on Interest</h4>
+        <p>Compound interest means you earn interest not just on the money you save, but also on the interest you've already earned. This creates a "snowball" effect — the longer you save, the faster your money grows!</p>
+      </div>
+      <div class="activity-card">
+        <h3>🧮 Compound Interest Calculator</h3>
+        <p style="margin-bottom:1rem;">See how your savings grow over time!</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin-bottom:1rem;">
+          <div><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.3rem;">Amount Saved ($)</label><input class="activity-input" type="number" id="calcAmt" placeholder="e.g. 100" /></div>
+          <div><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.3rem;">Annual Rate (%)</label><input class="activity-input" type="number" id="calcRate" placeholder="e.g. 5" /></div>
+          <div><label style="font-size:.85rem;font-weight:600;display:block;margin-bottom:.3rem;">Years</label><input class="activity-input" type="number" id="calcYears" placeholder="e.g. 10" /></div>
+        </div>
+        <button class="btn btn-accent" onclick="calcSavings()">Calculate Growth →</button>
+        <div class="activity-result" id="calcResult"></div>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">🎯</span> Set SMART Goals</h2>
+      <div class="key-terms">
+        <div class="key-term"><div class="key-term-icon">S</div><div><div class="key-term-word">Specific</div><div class="key-term-def">"Save for a new bicycle" — not just "save money."</div></div></div>
+        <div class="key-term"><div class="key-term-icon">M</div><div><div class="key-term-word">Measurable</div><div class="key-term-def">"Save $150" — you'll know when you've reached it.</div></div></div>
+        <div class="key-term"><div class="key-term-icon">A</div><div><div class="key-term-word">Achievable</div><div class="key-term-def">Is your goal realistic given your income? Adjust if needed.</div></div></div>
+        <div class="key-term"><div class="key-term-icon">R</div><div><div class="key-term-word">Relevant</div><div class="key-term-def">Does this goal matter to YOU? Motivation comes from owning your goals.</div></div></div>
+        <div class="key-term"><div class="key-term-icon">T</div><div><div class="key-term-word">Time-Bound</div><div class="key-term-def">"By December 1st" — a deadline creates urgency and focus.</div></div></div>
+      </div>
+    </div>
+
+
+    <div class="lesson-section">
+      <h2><span class="icon">🎯</span> Take the Quiz!</h2>
+      <div class="card" style="text-align:center;padding:2rem;">
+        <div style="font-size:3rem;margin-bottom:1rem;">🏆</div>
+        <h3>Session 4 Quiz</h3>
+        <p class="text-muted mt-1 mb-2">5 questions · Instant feedback</p>
+        <a href="../quizzes/quiz4.html" class="btn btn-primary btn-lg">Start Quiz →</a>
+      </div>
+    </div>
+
+    <div class="lesson-section">
+      <h2><span class="icon">📝</span> Session Worksheet</h2>
+      <div class="card" style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div style="font-size:2.5rem;">📄</div>
+        <div style="flex:1;"><h3>Saving & Goals Worksheet</h3><p class="text-muted">Practice what you've learned with hands-on exercises.</p></div>
+        <a href="../worksheets/worksheet4.html" class="btn btn-outline">Open Worksheet →</a>
+      </div>
+    </div>
+
+    <div class="session-nav-arrows">
+      <a href="session3.html" class="btn btn-outline">← Session 3: Budgeting</a>
+      <a href="session5.html" class="btn btn-primary">Next: Session 5: Banking 101 →</a>
+    </div>
+  </main>
+
+  <aside class="session-sidebar">
+    <div class="card">
+      <h4 style="margin-bottom:.75rem;">📋 Session Progress</h4>
+      <div class="progress-label"><span>Lesson</span><span id="lessonPct">0%</span></div>
+      <div class="progress-wrap mb-2"><div class="progress-bar" id="lessonBar" style="width:0%"></div></div>
+      <button class="btn btn-accent w-full" id="markDoneBtn" onclick="markDone()">✓ Mark as Complete</button>
+    </div>
+    <div class="card">
+      <h4 style="margin-bottom:.75rem;">📚 All Sessions</h4>
+      <div style="display:flex;flex-direction:column;gap:.4rem;font-size:.88rem;">
+        <a href="session1.html" style="color:var(--text-muted);">① What Is Money?</a>
+        <a href="session2.html" style="color:var(--text-muted);">② Needs vs. Wants</a>
+        <a href="session3.html" style="color:var(--text-muted);">③ Budgeting Basics</a>
+        <a href="session4.html" style="color:var(--primary);font-weight:700;">④ Saving & Goals ← You are here</a>
+        <a href="session5.html" style="color:var(--text-muted);">⑤ Banking 101</a>
+        <a href="session6.html" style="color:var(--text-muted);">⑥ Credit & Debt</a>
+        <a href="session7.html" style="color:var(--text-muted);">⑦ Earning Money</a>
+        <a href="session8.html" style="color:var(--text-muted);">⑧ Investing Intro</a>
+        <a href="session9.html" style="color:var(--text-muted);">⑨ Smart Shopping</a>
+        <a href="session10.html" style="color:var(--text-muted);">⑩ Money Mindset</a>
+      </div>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#dbeafe,#fff);border-color:#93c5fd;">
+      <h4 style="color:#1e40af;margin-bottom:.5rem;">💡 Fun Fact</h4>
+      <p style="font-size:.88rem;">If you save $5 a week starting at age 10, you could have over $50,000 by age 65 — thanks to compound interest!</p>
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+<script src="../scripts/app.js"></script>
+<script>
+let lessonProgress = 0;
+function markDone() {
+  lessonProgress = 100;
+  document.getElementById('lessonBar').style.width = '100%';
+  document.getElementById('lessonPct').textContent = '100%';
+  document.getElementById('markDoneBtn').textContent = '✅ Completed!';
+  document.getElementById('markDoneBtn').disabled = true;
+  markSessionComplete(4);
+}
+window.addEventListener('scroll', () => {
+  const docH = document.body.scrollHeight - window.innerHeight;
+  const pct = Math.min(100, Math.round((window.scrollY / docH) * 100));
+  if (pct > lessonProgress && lessonProgress < 100) {
+    lessonProgress = pct;
+    document.getElementById('lessonBar').style.width = pct + '%';
+    document.getElementById('lessonPct').textContent = pct + '%';
+  }
+});
+</script>
+</body>
+</html>

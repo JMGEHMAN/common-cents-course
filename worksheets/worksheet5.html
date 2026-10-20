@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 5: Banking 101 — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 5</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 5 of 10</div>
+    <h1>📝 Worksheet 5: Banking 101</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session5.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>🏦 Part 1: Account Comparison</h3>
+      <p style="margin-bottom:.75rem;">Fill in the differences between account types.</p>
+      <table class="ws-table">
+        <thead><tr><th>Feature</th><th>Checking Account</th><th>Savings Account</th></tr></thead>
+        <tbody>
+          <tr><td>Main Purpose</td><td><input data-ws="chk_purpose" placeholder="Used for..." /></td><td><input data-ws="sav_purpose" placeholder="Used for..." /></td></tr>
+          <tr><td>Earns Interest?</td><td><input data-ws="chk_int" placeholder="Yes/No/Little" /></td><td><input data-ws="sav_int" placeholder="Yes/No/Little" /></td></tr>
+          <tr><td>Comes with Debit Card?</td><td><input data-ws="chk_card" placeholder="Yes/No" /></td><td><input data-ws="sav_card" placeholder="Yes/No" /></td></tr>
+          <tr><td>Best For</td><td><input data-ws="chk_best" placeholder="Best when..." /></td><td><input data-ws="sav_best" placeholder="Best when..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🔐 Part 2: Banking Safety Check</h3>
+      <p style="margin-bottom:.75rem;">Rate your current online safety habits (1=Never, 5=Always):</p>
+      <table class="ws-table">
+        <thead><tr><th>Safety Habit</th><th>My Rating (1-5)</th></tr></thead>
+        <tbody>
+          <tr><td>I use a strong, unique password</td><td><input data-ws="s1" style="width:60px;" placeholder="1-5" /></td></tr>
+          <tr><td>I never access accounts on public Wi-Fi</td><td><input data-ws="s2" style="width:60px;" placeholder="1-5" /></td></tr>
+          <tr><td>I check my account regularly for errors</td><td><input data-ws="s3" style="width:60px;" placeholder="1-5" /></td></tr>
+          <tr><td>I never share passwords with friends</td><td><input data-ws="s4" style="width:60px;" placeholder="1-5" /></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:.75rem;margin-bottom:.5rem;">What one safety habit do you need to improve most?</p>
+      <textarea data-ws="safety_improve" class="ws-input" rows="2" placeholder="I need to improve..."></textarea>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>💡 Part 3: Bank Research</h3>
+      <p style="margin-bottom:.5rem;">Research ONE bank or credit union that offers a teen/student savings account. Write what you find:</p>
+      <table class="ws-table">
+        <tbody>
+          <tr><td>Bank/Credit Union Name</td><td><input data-ws="bank_name" placeholder="Name..." /></td></tr>
+          <tr><td>Savings Interest Rate</td><td><input data-ws="bank_rate" placeholder="%" /></td></tr>
+          <tr><td>Minimum Balance Required</td><td><input data-ws="bank_min" placeholder="$" /></td></tr>
+          <tr><td>FDIC/NCUA Insured?</td><td><input data-ws="bank_ins" placeholder="Yes/No" /></td></tr>
+          <tr><td>Would you open an account here? Why?</td><td><input data-ws="bank_why" placeholder="Yes/No because..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session5');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money Matters — Financial Literacy Course</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 900px) { .hero-visual { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="index.html#sessions">📚 Sessions</a></li>
+      <li><a href="dashboard.html">📊 Dashboard</a></li>
+      <li><a href="quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">🏠 Home</a>
+    <a href="index.html#sessions">📚 Sessions</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="quiz-hub.html">🎯 Quizzes</a>
+    <a href="worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">✨ 10-Session Course</div>
+      <h1>Build Your Money Superpowers 💪</h1>
+      <p>A fun, interactive financial literacy journey for kids and teens. Learn to budget, save, invest, and make smart money choices — one session at a time!</p>
+      <div class="hero-btns">
+        <a href="sessions/session1.html" class="btn btn-white btn-lg">🚀 Start Learning</a>
+        <a href="dashboard.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,.6)">📊 Parent Dashboard</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="icon">📚</div>
+        <div class="value">10</div>
+        <div class="label">Sessions</div>
+      </div>
+      <div class="hero-card">
+        <div class="icon">🎯</div>
+        <div class="value">50+</div>
+        <div class="label">Quiz Questions</div>
+      </div>
+      <div class="hero-card">
+        <div class="icon">📝</div>
+        <div class="value">10</div>
+        <div class="label">Worksheets</div>
+      </div>
+      <div class="hero-card">
+        <div class="icon">🏆</div>
+        <div class="value">Fun</div>
+        <div class="label">Activities</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-title">
+      <div class="eyebrow">Why Money Matters</div>
+      <h2>Everything You Need to Become Money-Smart 🌟</h2>
+      <p>This course covers the financial concepts every young person needs — taught in an engaging, age-appropriate way.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3>10 Complete Lessons</h3>
+        <p>Step-by-step sessions covering money basics through investing, tailored for kids and teens.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Interactive Quizzes</h3>
+        <p>Instant-feedback quizzes after every session to reinforce learning and track mastery.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Printable Worksheets</h3>
+        <p>Real-world exercises to practice budgeting, savings goals, and spending plans.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Parent Dashboard</h3>
+        <p>Track progress, quiz scores, and course completion all in one convenient view.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧮</div>
+        <h3>Built-in Calculators</h3>
+        <p>Savings growth and budget calculators bring math concepts to life instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Progress Tracking</h3>
+        <p>Visual progress bars and badges motivate learners to complete every session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SESSIONS GRID ===== -->
+<section class="section" id="sessions">
+  <div class="container">
+    <div class="section-title">
+      <div class="eyebrow">The Curriculum</div>
+      <h2>10 Sessions to Money Mastery 🎓</h2>
+      <p>Each session takes 30–45 minutes and includes a lesson, activity, and quiz.</p>
+    </div>
+
+    <div class="sessions-grid sessions-preview">
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-1"></div>
+        <div class="session-card-top">
+          <div class="session-num">1</div>
+          <div>
+            <h3>What Is Money?</h3>
+            <p class="text-muted" style="font-size:.9rem">The history & purpose of money</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Explore where money came from, why we use it, and the different forms money takes — from coins to digital payments.</p>
+          <div class="session-tags">
+            <span class="badge badge-purple">🪙 History</span>
+            <span class="badge badge-blue">💳 Currency</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 30 min · Beginner</span>
+          <a href="sessions/session1.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-2"></div>
+        <div class="session-card-top">
+          <div class="session-num">2</div>
+          <div>
+            <h3>Needs vs. Wants</h3>
+            <p class="text-muted" style="font-size:.9rem">Making smart spending decisions</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Learn to tell the difference between things you need to survive and things you simply want — a key skill for smart spending.</p>
+          <div class="session-tags">
+            <span class="badge badge-green">🛒 Spending</span>
+            <span class="badge badge-gold">🧠 Decisions</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 35 min · Beginner</span>
+          <a href="sessions/session2.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-3"></div>
+        <div class="session-card-top">
+          <div class="session-num">3</div>
+          <div>
+            <h3>Budgeting Basics</h3>
+            <p class="text-muted" style="font-size:.9rem">Plan where every dollar goes</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Create your first budget! Learn the 50/30/20 rule and practice allocating income to needs, wants, and savings.</p>
+          <div class="session-tags">
+            <span class="badge badge-purple">📊 Budget</span>
+            <span class="badge badge-green">🧮 Math</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 40 min · Beginner</span>
+          <a href="sessions/session3.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-4"></div>
+        <div class="session-card-top">
+          <div class="session-num">4</div>
+          <div>
+            <h3>Saving & Goals</h3>
+            <p class="text-muted" style="font-size:.9rem">Turn dreams into savings plans</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Set SMART savings goals, understand the power of compound interest, and learn why paying yourself first matters.</p>
+          <div class="session-tags">
+            <span class="badge badge-gold">🎯 Goals</span>
+            <span class="badge badge-blue">📈 Growth</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 40 min · Intermediate</span>
+          <a href="sessions/session4.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-5"></div>
+        <div class="session-card-top">
+          <div class="session-num">5</div>
+          <div>
+            <h3>Banking 101</h3>
+            <p class="text-muted" style="font-size:.9rem">How banks work & keeping money safe</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Discover what banks do, the difference between checking and savings accounts, and how FDIC insurance protects your money.</p>
+          <div class="session-tags">
+            <span class="badge badge-blue">🏦 Banking</span>
+            <span class="badge badge-purple">🔐 Safety</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 35 min · Intermediate</span>
+          <a href="sessions/session5.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-6"></div>
+        <div class="session-card-top">
+          <div class="session-num">6</div>
+          <div>
+            <h3>Credit & Debt</h3>
+            <p class="text-muted" style="font-size:.9rem">Borrowing money responsibly</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Understand how credit cards, loans, and interest work — and why good credit habits now set you up for a strong financial future.</p>
+          <div class="session-tags">
+            <span class="badge badge-gold">💳 Credit</span>
+            <span class="badge badge-purple">⚖️ Debt</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 40 min · Intermediate</span>
+          <a href="sessions/session6.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-7"></div>
+        <div class="session-card-top">
+          <div class="session-num">7</div>
+          <div>
+            <h3>Earning Money</h3>
+            <p class="text-muted" style="font-size:.9rem">Jobs, income, and entrepreneurship</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Explore the many ways to earn money — jobs, side hustles, entrepreneurship — and discover how taxes affect your paycheck.</p>
+          <div class="session-tags">
+            <span class="badge badge-green">💼 Jobs</span>
+            <span class="badge badge-blue">🚀 Entrepreneurship</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 35 min · Intermediate</span>
+          <a href="sessions/session7.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-8"></div>
+        <div class="session-card-top">
+          <div class="session-num">8</div>
+          <div>
+            <h3>Investing Intro</h3>
+            <p class="text-muted" style="font-size:.9rem">Make your money work for you</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Learn the basics of stocks, bonds, and mutual funds — and why starting to invest young is one of the best money moves you can make.</p>
+          <div class="session-tags">
+            <span class="badge badge-purple">📈 Investing</span>
+            <span class="badge badge-gold">⏳ Long-term</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 45 min · Advanced</span>
+          <a href="sessions/session8.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-9"></div>
+        <div class="session-card-top">
+          <div class="session-num">9</div>
+          <div>
+            <h3>Smart Shopping</h3>
+            <p class="text-muted" style="font-size:.9rem">Getting the best value for money</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Master comparison shopping, avoid marketing tricks, and learn to resist impulse buys so your money stretches further.</p>
+          <div class="session-tags">
+            <span class="badge badge-green">🛍️ Shopping</span>
+            <span class="badge badge-blue">🔍 Research</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 35 min · Intermediate</span>
+          <a href="sessions/session9.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+      <div class="session-card">
+        <div class="status-dot" id="dot-10"></div>
+        <div class="session-card-top">
+          <div class="session-num">10</div>
+          <div>
+            <h3>Money Mindset</h3>
+            <p class="text-muted" style="font-size:.9rem">Attitudes & habits for lasting success</p>
+          </div>
+        </div>
+        <div class="session-card-body">
+          <p style="font-size:.9rem">Build the mindset of financial winners — gratitude, generosity, delayed gratification, and a long-term view of wealth.</p>
+          <div class="session-tags">
+            <span class="badge badge-gold">🌱 Mindset</span>
+            <span class="badge badge-purple">🎓 Graduation</span>
+          </div>
+        </div>
+        <div class="session-card-footer">
+          <span class="text-muted" style="font-size:.82rem">⏱ 40 min · All Levels</span>
+          <a href="sessions/session10.html" class="btn btn-primary btn-sm">Start →</a>
+        </div>
+      </div>
+
+    </div><!-- /sessions-grid -->
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to become a money master? 🎓</h2>
+    <p>Start with Session 1 and work your way through all 10 lessons. Your future self will thank you!</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="sessions/session1.html" class="btn btn-white btn-lg">🚀 Begin Session 1</a>
+      <a href="dashboard.html" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.5);">📊 View Dashboard</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo">💰 Money Matters</div>
+    <p>A financial literacy course for the next generation of money-smart kids.</p>
+    <p class="mt-2" style="font-size:.8rem; opacity:.6;">Progress is saved automatically in your browser. No account needed.</p>
+  </div>
+</footer>
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

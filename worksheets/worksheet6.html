@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 6: Credit & Debt — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 6</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 6 of 10</div>
+    <h1>📝 Worksheet 6: Credit & Debt</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session6.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>💳 Part 1: Interest Calculator</h3>
+      <p style="margin-bottom:.75rem;">See how interest adds up on a credit card balance.</p>
+      <table class="ws-table">
+        <thead><tr><th>Scenario</th><th>Balance</th><th>Rate</th><th>Interest Per Year</th><th>Your Calculation</th></tr></thead>
+        <tbody>
+          <tr><td>Scenario A</td><td>$500</td><td>20%</td><td>$<input data-ws="int_a" style="width:80px;" placeholder="?" /></td><td><input data-ws="calc_a" placeholder="Work..." /></td></tr>
+          <tr><td>Scenario B</td><td>$2,000</td><td>24%</td><td>$<input data-ws="int_b" style="width:80px;" placeholder="?" /></td><td><input data-ws="calc_b" placeholder="Work..." /></td></tr>
+          <tr><td>Scenario C</td><td>$5,000</td><td>18%</td><td>$<input data-ws="int_c" style="width:80px;" placeholder="?" /></td><td><input data-ws="calc_c" placeholder="Work..." /></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:.75rem;font-size:.88rem;color:var(--text-muted);"><em>Hint: Annual interest = Balance × Rate. E.g., $500 × 0.20 = $100/year</em></p>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>📊 Part 2: Good Debt vs. Bad Debt</h3>
+      <p style="margin-bottom:.75rem;">Label each as Good Debt (G) or Bad Debt (B) and explain why:</p>
+      <table class="ws-table">
+        <thead><tr><th>Type of Debt</th><th>G or B?</th><th>Why?</th></tr></thead>
+        <tbody>
+          <tr><td>Student loan for a nursing degree</td><td><input data-ws="d1" style="width:50px;" placeholder="G/B" /></td><td><input data-ws="d1r" placeholder="Because..." /></td></tr>
+          <tr><td>Credit card for a vacation</td><td><input data-ws="d2" style="width:50px;" placeholder="G/B" /></td><td><input data-ws="d2r" placeholder="Because..." /></td></tr>
+          <tr><td>Mortgage to buy a house</td><td><input data-ws="d3" style="width:50px;" placeholder="G/B" /></td><td><input data-ws="d3r" placeholder="Because..." /></td></tr>
+          <tr><td>Payday loan at 400% interest</td><td><input data-ws="d4" style="width:50px;" placeholder="G/B" /></td><td><input data-ws="d4r" placeholder="Because..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🌟 Part 3: My Credit Plan</h3>
+      <p style="margin-bottom:.5rem;">List 3 habits you will practice to build an excellent credit score:</p>
+      <input data-ws="credit1" class="ws-input" placeholder="Habit 1: I will..." />
+      <input data-ws="credit2" class="ws-input" placeholder="Habit 2: I will..." />
+      <input data-ws="credit3" class="ws-input" placeholder="Habit 3: I will..." />
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session6');
+});
+</script>
+</body>
+</html>

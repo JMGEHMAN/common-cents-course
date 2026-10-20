@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 8: Investing Intro — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 8</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 8 of 10</div>
+    <h1>📝 Worksheet 8: Investing Intro</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session8.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>📈 Part 1: Investment Type Matching</h3>
+      <p style="margin-bottom:.75rem;">Match each description to the investment type: Stock, Bond, Index Fund, Real Estate.</p>
+      <table class="ws-table">
+        <thead><tr><th>Description</th><th>Investment Type</th></tr></thead>
+        <tbody>
+          <tr><td>Tiny ownership share in a company like Apple</td><td><input data-ws="inv1" placeholder="Type..." /></td></tr>
+          <tr><td>A loan to the U.S. government that pays fixed interest</td><td><input data-ws="inv2" placeholder="Type..." /></td></tr>
+          <tr><td>Owning a bundle of 500 top companies at once</td><td><input data-ws="inv3" placeholder="Type..." /></td></tr>
+          <tr><td>Buying a house and renting it to tenants</td><td><input data-ws="inv4" placeholder="Type..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🌱 Part 2: The Power of Starting Early</h3>
+      <p style="margin-bottom:.75rem;">Calculate and compare these two scenarios (use 7% annual return):</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div style="background:#ede9fe;padding:1rem;border-radius:8px;">
+          <strong>Person A</strong><br>Invests $500 at age 15<br>Does not add more<br>Waits until age 65<br>
+          <p style="margin-top:.5rem;">Estimated value at 65: $<input data-ws="personA" class="ws-input" style="margin:0;" placeholder="Calculate!" /></p>
+        </div>
+        <div style="background:#d1fae5;padding:1rem;border-radius:8px;">
+          <strong>Person B</strong><br>Invests $500 at age 35<br>Does not add more<br>Waits until age 65<br>
+          <p style="margin-top:.5rem;">Estimated value at 65: $<input data-ws="personB" class="ws-input" style="margin:0;" placeholder="Calculate!" /></p>
+        </div>
+      </div>
+      <p style="margin-bottom:.5rem;">What does this tell you about starting to invest early?</p>
+      <textarea data-ws="invest_reflect" class="ws-input" rows="2" placeholder="This shows me that..."></textarea>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🎯 Part 3: My Investment Plan</h3>
+      <p style="margin-bottom:.5rem;">If you had $100 to invest today, how would you divide it among investment types? Explain your choices.</p>
+      <table class="ws-table">
+        <thead><tr><th>Investment Type</th><th>% of $100</th><th>Why?</th></tr></thead>
+        <tbody>
+          <tr><td>Index Funds</td><td><input data-ws="alloc1" style="width:60px;" placeholder="%" /></td><td><input data-ws="why1" placeholder="Because..." /></td></tr>
+          <tr><td>Individual Stocks</td><td><input data-ws="alloc2" style="width:60px;" placeholder="%" /></td><td><input data-ws="why2" placeholder="Because..." /></td></tr>
+          <tr><td>Bonds</td><td><input data-ws="alloc3" style="width:60px;" placeholder="%" /></td><td><input data-ws="why3" placeholder="Because..." /></td></tr>
+          <tr><td>Keep as Cash/Savings</td><td><input data-ws="alloc4" style="width:60px;" placeholder="%" /></td><td><input data-ws="why4" placeholder="Because..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session8');
+});
+</script>
+</body>
+</html>

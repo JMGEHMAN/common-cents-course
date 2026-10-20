@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 9: Smart Shopping — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 9</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 9 of 10</div>
+    <h1>📝 Worksheet 9: Smart Shopping</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session9.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>🔍 Part 1: Comparison Shopping</h3>
+      <p style="margin-bottom:.75rem;">Pick one item you'd like to buy. Research it at 3 different stores/websites.</p>
+      <table class="ws-table">
+        <thead><tr><th>Item I'm Researching</th><th colspan="3"><input data-ws="item_name" placeholder="Item name..." style="width:100%;" /></th></tr></thead>
+        <thead><tr><th>Store/Website</th><th>Price</th><th>Quality (1-5)</th><th>Best Deal? Why?</th></tr></thead>
+        <tbody>
+          <tr><td><input data-ws="store1" placeholder="Store 1..." /></td><td><input data-ws="price1" placeholder="$" /></td><td><input data-ws="qual1" style="width:50px;" placeholder="1-5" /></td><td><input data-ws="deal1" placeholder="Yes/No..." /></td></tr>
+          <tr><td><input data-ws="store2" placeholder="Store 2..." /></td><td><input data-ws="price2" placeholder="$" /></td><td><input data-ws="qual2" style="width:50px;" placeholder="1-5" /></td><td><input data-ws="deal2" placeholder="Yes/No..." /></td></tr>
+          <tr><td><input data-ws="store3" placeholder="Store 3..." /></td><td><input data-ws="price3" placeholder="$" /></td><td><input data-ws="qual3" style="width:50px;" placeholder="1-5" /></td><td><input data-ws="deal3" placeholder="Yes/No..." /></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:.5rem;margin-bottom:.3rem;"><strong>I would buy from:</strong> <input data-ws="buy_from" style="display:inline;width:200px;" placeholder="Store name" /> because: <input data-ws="buy_why" style="display:inline;width:250px;" placeholder="Reason..." /></p>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🎭 Part 2: Spot the Marketing Trick</h3>
+      <p style="margin-bottom:.75rem;">Identify the marketing trick used in each scenario:</p>
+      <table class="ws-table">
+        <thead><tr><th>Ad Scenario</th><th>Marketing Trick Used</th></tr></thead>
+        <tbody>
+          <tr><td>"SALE ENDS IN 2 HOURS! Get yours now!"</td><td><input data-ws="trick1" placeholder="Trick name..." /></td></tr>
+          <tr><td>"Was $199 — Now just $89!"</td><td><input data-ws="trick2" placeholder="Trick name..." /></td></tr>
+          <tr><td>"Buy 4 get 1 FREE!"</td><td><input data-ws="trick3" placeholder="Trick name..." /></td></tr>
+          <tr><td>"4.8 stars from 50,000 reviews!"</td><td><input data-ws="trick4" placeholder="Trick name..." /></td></tr>
+          <tr><td>"Free shipping on orders over $75"</td><td><input data-ws="trick5" placeholder="Trick name..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>💸 Part 3: My Shopping Rules</h3>
+      <p style="margin-bottom:.5rem;">Write your personal "5 Rules for Smart Shopping" that you'll actually follow:</p>
+      <input data-ws="rule1" class="ws-input" placeholder="Rule 1: I will always..." />
+      <input data-ws="rule2" class="ws-input" placeholder="Rule 2: Before buying I will..." />
+      <input data-ws="rule3" class="ws-input" placeholder="Rule 3: I will never..." />
+      <input data-ws="rule4" class="ws-input" placeholder="Rule 4: When I see a sale I will..." />
+      <input data-ws="rule5" class="ws-input" placeholder="Rule 5: To avoid impulse buys I will..." />
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session9');
+});
+</script>
+</body>
+</html>

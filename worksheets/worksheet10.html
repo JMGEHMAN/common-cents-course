@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 10: Money Mindset — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 10</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 10 of 10</div>
+    <h1>📝 Worksheet 10: Money Mindset</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session10.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>🌱 Part 1: Mindset Self-Assessment</h3>
+      <p style="margin-bottom:.75rem;">Rate your current money mindset (1=Strongly Disagree, 5=Strongly Agree):</p>
+      <table class="ws-table">
+        <thead><tr><th>Statement</th><th>Rating (1-5)</th></tr></thead>
+        <tbody>
+          <tr><td>I believe I can learn to manage money well</td><td><input data-ws="m1" style="width:60px;" placeholder="1-5" /></td></tr>
+          <tr><td>I think about how my spending affects my future</td><td><input data-ws="m2" style="width:60px;" placeholder="1-5" /></td></tr>
+          <tr><td>I can wait for something I want rather than buying it right away</td><td><input data-ws="m3" style="width:60px;" placeholder="1-5" /></td></tr>
+          <tr><td>I believe there are always ways to earn more money if I need to</td><td><input data-ws="m4" style="width:60px;" placeholder="1-5" /></td></tr>
+          <tr><td>I feel good about giving or sharing what I have</td><td><input data-ws="m5" style="width:60px;" placeholder="1-5" /></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:.75rem;margin-bottom:.5rem;">Which area needs the most improvement? What will you do about it?</p>
+      <textarea data-ws="mindset_improve" class="ws-input" rows="3" placeholder="I need to work on..."></textarea>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🏆 Part 2: My Financial Mission Statement</h3>
+      <p style="margin-bottom:.5rem;">Write a personal statement about how you want to approach money throughout your life:</p>
+      <textarea data-ws="mission" class="ws-input" rows="5" placeholder="My financial mission: I will manage money by...I value...My goals include..."></textarea>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🎓 Part 3: Course Reflection — 10 Things I Learned</h3>
+      <p style="margin-bottom:.75rem;">Looking back at all 10 sessions, list the 10 most important things you've learned about money:</p>
+      <input data-ws="learn1" class="ws-input" placeholder="1. I learned that..." />
+      <input data-ws="learn2" class="ws-input" placeholder="2. I learned that..." />
+      <input data-ws="learn3" class="ws-input" placeholder="3. I learned that..." />
+      <input data-ws="learn4" class="ws-input" placeholder="4. I learned that..." />
+      <input data-ws="learn5" class="ws-input" placeholder="5. I learned that..." />
+      <input data-ws="learn6" class="ws-input" placeholder="6. I learned that..." />
+      <input data-ws="learn7" class="ws-input" placeholder="7. I learned that..." />
+      <input data-ws="learn8" class="ws-input" placeholder="8. I learned that..." />
+      <input data-ws="learn9" class="ws-input" placeholder="9. I learned that..." />
+      <input data-ws="learn10" class="ws-input" placeholder="10. I learned that..." />
+      <div style="background:linear-gradient(135deg,#4f46e5,#10b981);color:#fff;border-radius:12px;padding:1.5rem;margin-top:1.5rem;text-align:center;">
+        <div style="font-size:3rem;">🎓</div>
+        <h3 style="color:#fff;margin:.5rem 0;">Course Complete!</h3>
+        <p style="color:rgba(255,255,255,.85);">Congratulations on finishing Money Matters! You now have the knowledge to build a strong financial future. The best time to start is NOW!</p>
+      </div>
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session10');
+});
+</script>
+</body>
+</html>
