@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 3: Budgeting Basics — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 3</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 3 of 10</div>
+    <h1>📝 Worksheet 3: Budgeting Basics</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session3.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>💰 Part 1: My Monthly Budget</h3>
+      <p style="margin-bottom:.75rem;">Fill in your real (or imagined) monthly income and expenses.</p>
+      <table class="ws-table">
+        <thead><tr><th>Category</th><th>Monthly Amount ($)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Monthly Income (allowance, jobs, gifts)</strong></td><td><input data-ws="income" placeholder="Total income" /></td></tr>
+          <tr><td colspan="2" style="background:#ede9fe;font-weight:700;color:var(--primary-dk);">NEEDS (50% target)</td></tr>
+          <tr><td>School supplies / transportation</td><td><input data-ws="need1" placeholder="$" /></td></tr>
+          <tr><td>Food / snacks (essential)</td><td><input data-ws="need2" placeholder="$" /></td></tr>
+          <tr><td>Other needs:</td><td><input data-ws="need3" placeholder="$" /></td></tr>
+          <tr><td colspan="2" style="background:#fef3c7;font-weight:700;color:#92400e;">WANTS (30% target)</td></tr>
+          <tr><td>Entertainment / games</td><td><input data-ws="want1" placeholder="$" /></td></tr>
+          <tr><td>Dining out / snacks (fun)</td><td><input data-ws="want2" placeholder="$" /></td></tr>
+          <tr><td>Clothing / accessories</td><td><input data-ws="want3" placeholder="$" /></td></tr>
+          <tr><td>Other wants:</td><td><input data-ws="want4" placeholder="$" /></td></tr>
+          <tr><td colspan="2" style="background:#d1fae5;font-weight:700;color:#065f46;">SAVINGS (20% target)</td></tr>
+          <tr><td>Short-term savings goal</td><td><input data-ws="save1" placeholder="$" /></td></tr>
+          <tr><td>Long-term savings / investments</td><td><input data-ws="save2" placeholder="$" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>📊 Part 2: Budget Analysis</h3>
+      <p style="margin-bottom:.5rem;">After filling in your budget above, answer these questions:</p>
+      <p style="margin-bottom:.3rem;">What is your total monthly income? $<input data-ws="total_inc" style="width:100px;display:inline;" placeholder="0" /></p>
+      <p style="margin-bottom:.3rem;margin-top:.5rem;">What is your total monthly spending (needs + wants)? $<input data-ws="total_spend" style="width:100px;display:inline;" placeholder="0" /></p>
+      <p style="margin-bottom:.3rem;margin-top:.5rem;">How much are you saving per month? $<input data-ws="total_save" style="width:100px;display:inline;" placeholder="0" /></p>
+      <p style="margin-top:.75rem;margin-bottom:.5rem;">Is your budget balanced (income ≥ expenses)? What changes would you make?</p>
+      <textarea data-ws="budget_analysis" class="ws-input" rows="3" placeholder="My budget is... I would change..."></textarea>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>✂️ Part 3: Cut the Budget!</h3>
+      <p style="margin-bottom:.5rem;">Imagine your income dropped by 25%. List 3 specific things you would cut from your budget and how much each would save:</p>
+      <table class="ws-table">
+        <thead><tr><th>What I Would Cut</th><th>Monthly Savings</th></tr></thead>
+        <tbody>
+          <tr><td><input data-ws="cut1" placeholder="Cut item 1..." /></td><td><input data-ws="csave1" placeholder="$" /></td></tr>
+          <tr><td><input data-ws="cut2" placeholder="Cut item 2..." /></td><td><input data-ws="csave2" placeholder="$" /></td></tr>
+          <tr><td><input data-ws="cut3" placeholder="Cut item 3..." /></td><td><input data-ws="csave3" placeholder="$" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session3');
+});
+</script>
+</body>
+</html>

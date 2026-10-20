@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Dashboard — Money Matters</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="index.html#sessions">📚 Sessions</a></li>
+      <li><a href="dashboard.html">📊 Dashboard</a></li>
+      <li><a href="quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">🏠 Home</a>
+    <a href="index.html#sessions">📚 Sessions</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="quiz-hub.html">🎯 Quizzes</a>
+    <a href="worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="dashboard-layout">
+
+  <!-- HERO BANNER -->
+  <div class="dash-hero">
+    <div class="badge badge-purple mb-2" style="background:rgba(255,255,255,.15);color:#fff;">📊 Parent Dashboard</div>
+    <h1>Course Progress Overview</h1>
+    <p>Track your daughter's progress through all 10 sessions, quiz scores, and completed activities.</p>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="dash-stats">
+    <div class="stat-card">
+      <div class="stat-icon">📚</div>
+      <div class="stat-val" id="statVisited">0</div>
+      <div class="stat-lbl">Sessions Visited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🎯</div>
+      <div class="stat-val" id="statQuizzed">0</div>
+      <div class="stat-lbl">Quizzes Completed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📈</div>
+      <div class="stat-val" id="statAvgScore">—</div>
+      <div class="stat-lbl">Average Quiz Score</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🔥</div>
+      <div class="stat-val" id="statStreak">0</div>
+      <div class="stat-lbl">Sessions Completed</div>
+    </div>
+  </div>
+
+  <!-- OVERALL PROGRESS -->
+  <div class="card mb-4">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem;">
+      <h3>🏁 Overall Course Progress</h3>
+      <span id="overallPct" class="badge badge-purple" style="font-size:1rem;padding:.4rem 1rem;">0%</span>
+    </div>
+    <div class="progress-wrap" style="height:16px;">
+      <div class="progress-bar" id="overallBar" style="width:0%"></div>
+    </div>
+    <p class="text-muted mt-2" style="font-size:.85rem;">Progress is measured by sessions visited. Complete each session and its quiz to count as fully done.</p>
+  </div>
+
+  <!-- SCORE CHART -->
+  <div class="card mb-4">
+    <h3 style="margin-bottom:1rem;">📊 Quiz Scores by Session</h3>
+    <canvas id="scoreChart" width="900" height="200" style="width:100%;height:auto;border-radius:8px;"></canvas>
+    <div style="display:flex;gap:1.5rem;margin-top:.75rem;flex-wrap:wrap;font-size:.82rem;">
+      <span style="display:flex;align-items:center;gap:.4rem;"><span style="width:12px;height:12px;border-radius:3px;background:#4f46e5;display:inline-block;"></span> 80%+ (Great)</span>
+      <span style="display:flex;align-items:center;gap:.4rem;"><span style="width:12px;height:12px;border-radius:3px;background:#f59e0b;display:inline-block;"></span> 60–79% (Good)</span>
+      <span style="display:flex;align-items:center;gap:.4rem;"><span style="width:12px;height:12px;border-radius:3px;background:#ef4444;display:inline-block;"></span> Below 60% (Review Needed)</span>
+      <span style="display:flex;align-items:center;gap:.4rem;"><span style="width:12px;height:12px;border-radius:3px;background:#e5e7eb;display:inline-block;"></span> Not Yet Attempted</span>
+    </div>
+  </div>
+
+  <!-- DETAILED TABLE -->
+  <div class="card mb-4">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem;">
+      <h3>📋 Session-by-Session Breakdown</h3>
+      <button class="btn btn-outline btn-sm" onclick="resetAllProgress()" style="color:var(--danger);border-color:var(--danger);">🗑️ Reset All Progress</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="session-table">
+        <thead>
+          <tr>
+            <th>Session</th>
+            <th>Topic</th>
+            <th>Status</th>
+            <th>Quiz Score</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="dashTableBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PARENT TIPS -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-bottom:2rem;">
+    <div class="card" style="background:linear-gradient(135deg,#ede9fe,#dbeafe);border-color:#c4b5fd;">
+      <h4 style="color:var(--primary-dk);margin-bottom:.75rem;">💡 Parent Tips</h4>
+      <ul style="font-size:.9rem;color:var(--text);list-style:none;display:flex;flex-direction:column;gap:.5rem;">
+        <li>🗣️ Ask your child to explain each session in their own words after completing it</li>
+        <li>🏪 Connect lessons to real-life experiences (grocery shopping, bank visits)</li>
+        <li>💰 Consider a matching savings program — you match what they save each month</li>
+        <li>🎮 Let them make small money mistakes while the stakes are low</li>
+        <li>📱 Show them your actual budget (simplified) to make it real</li>
+      </ul>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#d1fae5,#f0fdf4);border-color:#6ee7b7;">
+      <h4 style="color:#065f46;margin-bottom:.75rem;">🏆 Milestones to Celebrate</h4>
+      <ul style="font-size:.9rem;color:var(--text);list-style:none;display:flex;flex-direction:column;gap:.5rem;">
+        <li>✅ First session completed — give a high five!</li>
+        <li>🌟 First quiz score above 80% — celebrate the learning!</li>
+        <li>💰 5 sessions done — halfway hero award!</li>
+        <li>🎓 All 10 sessions + quizzes — graduation ceremony!</li>
+        <li>📝 All worksheets completed — extra recognition!</li>
+      </ul>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#fef3c7,#fffbeb);border-color:#fcd34d;">
+      <h4 style="color:#92400e;margin-bottom:.75rem;">📚 Discussion Questions</h4>
+      <ul style="font-size:.9rem;color:var(--text);list-style:none;display:flex;flex-direction:column;gap:.5rem;">
+        <li>💬 "What's one thing you want to save for right now?"</li>
+        <li>💬 "Can you help me figure out if this purchase is a need or want?"</li>
+        <li>💬 "What would you do if you won $1,000?"</li>
+        <li>💬 "What job would you like to have someday?"</li>
+        <li>💬 "What does being 'good with money' mean to you?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="card mb-4">
+    <h3 style="margin-bottom:1rem;">🔗 Quick Navigation</h3>
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+      <a href="index.html" class="btn btn-primary">🏠 Course Home</a>
+      <a href="quiz-hub.html" class="btn btn-outline">🎯 All Quizzes</a>
+      <a href="worksheets.html" class="btn btn-outline">📝 All Worksheets</a>
+      <a href="sessions/session1.html" class="btn btn-accent">▶ Start from Session 1</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation. Progress saved locally in the browser.</p></div></footer>
+
+<script src="scripts/app.js"></script>
+</body>
+</html>

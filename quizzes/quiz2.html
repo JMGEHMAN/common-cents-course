@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz 2: Needs vs. Wants — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div style="max-width:800px;margin:2rem auto;padding:0 1.25rem;">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../quiz-hub.html">Quizzes</a><span class="sep">›</span>
+    <span>Quiz 2</span>
+  </div>
+
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <div class="badge badge-purple mb-1">Session 2 of 10</div>
+      <h1 style="font-size:1.6rem;">Quiz: Needs vs. Wants</h1>
+      <p class="text-muted mt-1">5 questions · Select the best answer · Instant feedback</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-label">
+      <span id="quizProgressText">Question 1 of 5</span>
+      <span id="quizScore">Score: 0</span>
+    </div>
+    <div class="progress-wrap mb-2">
+      <div class="progress-bar" id="quizProgressBar" style="width:0%"></div>
+    </div>
+
+    <!-- Quiz card -->
+    <div id="quizCard" class="question-card">
+      <div class="question-text" id="questionText">Loading...</div>
+      <div class="options-list" id="optionsList"></div>
+      <div class="feedback-box" id="feedbackBox"></div>
+      <div style="margin-top:1.5rem;text-align:right;">
+        <button class="btn btn-primary" id="nextBtn" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Result card (hidden) -->
+    <div id="quizResult" class="quiz-result hidden">
+      <div class="score-circle">
+        <div class="score-num" id="scoreNum">0/5</div>
+        <div class="score-label">Score</div>
+      </div>
+      <div class="stars" id="scoreStars">⭐</div>
+      <h2>Quiz Complete! 🎉</h2>
+      <p id="scoreMsg" class="text-muted mt-1"></p>
+      <div class="mt-2" style="background:var(--border);border-radius:var(--radius-sm);padding:1rem;">
+        <div class="progress-label"><span>Your Score</span><span id="resultPct">0%</span></div>
+        <div class="progress-wrap"><div class="progress-bar" id="quizProgressBar2" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+        <button class="btn btn-outline" id="restartQuiz">🔄 Try Again</button>
+        <a href="../sessions/session2.html" class="btn btn-primary">← Back to Lesson</a>
+        <a href="../sessions/session3.html" class="btn btn-accent">Next Session →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+const questions = [{question:"Which of the following is a NEED?",options:["Brand-name sneakers", "A video game console", "Medicine when you are sick", "A streaming subscription"],correct:2,explanation:"Healthcare and medicine are needs — they're essential for health and survival."},
+    {question:"You need food — but what turns food from a need into a want?",options:["Eating at an expensive restaurant instead of cooking at home", "Buying groceries", "Eating three meals a day", "Packing your lunch for school"],correct:0,explanation:"Food is a need, but dining at expensive restaurants is a want — you can eat more simply and still meet the need."},
+    {question:"What is the '24-Hour Rule' for spending?",options:["You have 24 hours to return any purchase", "Wait 24 hours before making any non-essential purchase", "You can only shop once every 24 hours", "Save 24% of every paycheck"],correct:1,explanation:"Waiting 24 hours before a non-essential purchase eliminates most impulse buys — you'll often realize you didn't need it."},
+    {question:"How do advertisers often trick consumers?",options:["By making their products cheaper", "By convincing you that wants are actually needs", "By showing you realistic product reviews", "By listing all product flaws honestly"],correct:1,explanation:"Advertisers use words like 'essential' and 'must-have' to blur the line between needs and wants."},
+    {question:"Which of these is the BEST example of a pure 'need'?",options:["The latest iPhone model", "A stylish winter coat with a designer logo", "Basic clothing appropriate for cold weather", "Watching movies on a streaming service"],correct:2,explanation:"Basic clothing for weather protection is a true need. The designer label or latest phone model are wants."}];
+
+// Patch score display
+const origInit = window.initQuiz;
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(questions, 2);
+  // sync second progress bar with result
+  const bar2 = document.getElementById('quizProgressBar2');
+  const obs = new MutationObserver(() => {
+    const pct = document.getElementById('resultPct')?.textContent;
+    if (bar2 && pct) bar2.style.width = pct;
+  });
+  obs.observe(document.getElementById('quizResult') || document.body, {subtree:true, characterData:true, childList:true});
+  
+  // Update score display on each answer
+  document.getElementById('optionsList')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const scoreEl = document.getElementById('quizScore');
+      if (scoreEl) {
+        // count correct answers from feedback boxes
+        const correct = document.querySelectorAll('.option-btn.correct').length;
+      }
+    }, 100);
+  });
+});
+</script>
+</body>
+</html>

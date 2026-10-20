@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 7: Earning Money — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 7</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 7 of 10</div>
+    <h1>📝 Worksheet 7: Earning Money</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session7.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>💡 Part 1: My Skills & Earning Potential</h3>
+      <p style="margin-bottom:.75rem;">List your skills and how they could earn money:</p>
+      <table class="ws-table">
+        <thead><tr><th>My Skill</th><th>Possible Service/Product</th><th>Est. Hourly Rate</th></tr></thead>
+        <tbody>
+          <tr><td><input data-ws="skill1" placeholder="Skill..." /></td><td><input data-ws="earn1" placeholder="Could offer..." /></td><td><input data-ws="rate1" placeholder="$__/hr" /></td></tr>
+          <tr><td><input data-ws="skill2" placeholder="Skill..." /></td><td><input data-ws="earn2" placeholder="Could offer..." /></td><td><input data-ws="rate2" placeholder="$__/hr" /></td></tr>
+          <tr><td><input data-ws="skill3" placeholder="Skill..." /></td><td><input data-ws="earn3" placeholder="Could offer..." /></td><td><input data-ws="rate3" placeholder="$__/hr" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🧾 Part 2: Paycheck Math</h3>
+      <p style="margin-bottom:.75rem;">Practice calculating net pay. Assume a 25% total tax rate.</p>
+      <table class="ws-table">
+        <thead><tr><th>Scenario</th><th>Gross Pay</th><th>Taxes (25%)</th><th>Net Pay</th></tr></thead>
+        <tbody>
+          <tr><td>Scenario A (10 hrs × $12/hr)</td><td>$120</td><td>$<input data-ws="tax_a" style="width:70px;" placeholder="?" /></td><td>$<input data-ws="net_a" style="width:70px;" placeholder="?" /></td></tr>
+          <tr><td>Scenario B (20 hrs × $15/hr)</td><td>$300</td><td>$<input data-ws="tax_b" style="width:70px;" placeholder="?" /></td><td>$<input data-ws="net_b" style="width:70px;" placeholder="?" /></td></tr>
+          <tr><td>Scenario C (monthly salary $800)</td><td>$800</td><td>$<input data-ws="tax_c" style="width:70px;" placeholder="?" /></td><td>$<input data-ws="net_c" style="width:70px;" placeholder="?" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🚀 Part 3: My Business Idea</h3>
+      <p style="margin-bottom:.5rem;">Describe a simple business you could start in your neighborhood:</p>
+      <table class="ws-table">
+        <tbody>
+          <tr><td>Business Name</td><td><input data-ws="biz_name" placeholder="Name..." /></td></tr>
+          <tr><td>Problem it solves</td><td><input data-ws="biz_prob" placeholder="I solve the problem of..." /></td></tr>
+          <tr><td>Who would pay for it?</td><td><input data-ws="biz_cust" placeholder="My customers would be..." /></td></tr>
+          <tr><td>How much would I charge?</td><td><input data-ws="biz_price" placeholder="$__ per..." /></td></tr>
+          <tr><td>Startup costs needed</td><td><input data-ws="biz_cost" placeholder="I'd need about $..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session7');
+});
+</script>
+</body>
+</html>

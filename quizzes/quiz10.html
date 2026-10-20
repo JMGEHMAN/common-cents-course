@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz 10: Money Mindset — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div style="max-width:800px;margin:2rem auto;padding:0 1.25rem;">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../quiz-hub.html">Quizzes</a><span class="sep">›</span>
+    <span>Quiz 10</span>
+  </div>
+
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <div class="badge badge-purple mb-1">Session 10 of 10</div>
+      <h1 style="font-size:1.6rem;">Quiz: Money Mindset</h1>
+      <p class="text-muted mt-1">5 questions · Select the best answer · Instant feedback</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-label">
+      <span id="quizProgressText">Question 1 of 5</span>
+      <span id="quizScore">Score: 0</span>
+    </div>
+    <div class="progress-wrap mb-2">
+      <div class="progress-bar" id="quizProgressBar" style="width:0%"></div>
+    </div>
+
+    <!-- Quiz card -->
+    <div id="quizCard" class="question-card">
+      <div class="question-text" id="questionText">Loading...</div>
+      <div class="options-list" id="optionsList"></div>
+      <div class="feedback-box" id="feedbackBox"></div>
+      <div style="margin-top:1.5rem;text-align:right;">
+        <button class="btn btn-primary" id="nextBtn" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Result card (hidden) -->
+    <div id="quizResult" class="quiz-result hidden">
+      <div class="score-circle">
+        <div class="score-num" id="scoreNum">0/5</div>
+        <div class="score-label">Score</div>
+      </div>
+      <div class="stars" id="scoreStars">⭐</div>
+      <h2>Quiz Complete! 🎉</h2>
+      <p id="scoreMsg" class="text-muted mt-1"></p>
+      <div class="mt-2" style="background:var(--border);border-radius:var(--radius-sm);padding:1rem;">
+        <div class="progress-label"><span>Your Score</span><span id="resultPct">0%</span></div>
+        <div class="progress-wrap"><div class="progress-bar" id="quizProgressBar2" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+        <button class="btn btn-outline" id="restartQuiz">🔄 Try Again</button>
+        <a href="../sessions/session10.html" class="btn btn-primary">← Back to Lesson</a>
+        <a href="../sessions/session10.html" class="btn btn-accent">🏠 Back to Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+const questions = [{question:"What is an 'abundance mindset' about money?",options:["Believing you will always have more than enough without effort", "Believing there are always opportunities to learn, earn, and grow financially", "Spending freely because money is always available", "Thinking money grows in banks without investing"],correct:1,explanation:"An abundance mindset believes in opportunity, growth, and learning — vs. a scarcity mindset that assumes money is always running out."},
+    {question:"What does 'delayed gratification' mean in financial terms?",options:["Getting money back on purchases after a delay", "Waiting for better sales before buying", "Choosing to save and wait rather than spending immediately for a bigger future reward", "Delaying your savings until you earn more money"],correct:2,explanation:"Delayed gratification — resisting immediate pleasure for greater future benefit — is one of the strongest predictors of financial success."},
+    {question:"Research shows people who write down their financial goals are how much more likely to achieve them?",options:["5% more likely", "15% more likely", "42% more likely", "Twice as likely (100%)"],correct:2,explanation:"Studies consistently show that writing down goals — financial or otherwise — increases achievement rates by about 42%. Your pen is a money tool!"},
+    {question:"Which habit is most associated with long-term financial success?",options:["Earning a very high income", "Spending on experiences rather than things", "Consistently spending less than you earn and investing the difference", "Playing the lottery regularly"],correct:2,explanation:"The #1 wealth-building habit is simple: consistently earn more than you spend, and invest the difference over time. Income level matters less than the gap between income and spending."},
+    {question:"Why is generosity considered a 'money mindset' skill?",options:["Giving money away makes you legally tax-exempt", "Generous people feel psychologically wealthier and are often more successful", "You can earn money by giving it away", "Generosity isn't related to financial mindset"],correct:1,explanation:"Research shows generous people feel greater life satisfaction and often experience more abundance. Generosity shifts mindset from scarcity to abundance, which supports better financial decisions."}];
+
+// Patch score display
+const origInit = window.initQuiz;
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(questions, 10);
+  // sync second progress bar with result
+  const bar2 = document.getElementById('quizProgressBar2');
+  const obs = new MutationObserver(() => {
+    const pct = document.getElementById('resultPct')?.textContent;
+    if (bar2 && pct) bar2.style.width = pct;
+  });
+  obs.observe(document.getElementById('quizResult') || document.body, {subtree:true, characterData:true, childList:true});
+  
+  // Update score display on each answer
+  document.getElementById('optionsList')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const scoreEl = document.getElementById('quizScore');
+      if (scoreEl) {
+        // count correct answers from feedback boxes
+        const correct = document.querySelectorAll('.option-btn.correct').length;
+      }
+    }, 100);
+  });
+});
+</script>
+</body>
+</html>

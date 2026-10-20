@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 1: What Is Money? — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 1</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 1 of 10</div>
+    <h1>📝 Worksheet 1: What Is Money?</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session1.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>📝 Part 1: Fill in the Blank</h3>
+      <p style="margin-bottom:.75rem;">Complete each sentence using what you learned in Session 1.</p>
+      <p>1. Before money existed, people traded goods directly in a system called <input data-ws="q1" class="ws-input" style="display:inline;width:160px;" placeholder="your answer" />.</p>
+      <p style="margin-top:.5rem;">2. The three functions of money are: <input data-ws="q2" class="ws-input" style="display:inline;width:200px;" placeholder="function 1" />, <input data-ws="q3" class="ws-input" style="display:inline;width:200px;" placeholder="function 2" />, and <input data-ws="q4" class="ws-input" style="display:inline;width:200px;" placeholder="function 3" />.</p>
+      <p style="margin-top:.5rem;">3. Money that has value only because the government says it does is called <input data-ws="q5" class="ws-input" style="display:inline;width:160px;" placeholder="your answer" /> money.</p>
+      <p style="margin-top:.5rem;">4. Less than <input data-ws="q6" class="ws-input" style="display:inline;width:60px;" placeholder="%" />% of all money in the world exists as physical cash.</p>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🤔 Part 2: Short Answer</h3>
+      <p style="margin-bottom:.5rem;">5. Explain in your own words why the barter system was difficult to use:</p>
+      <textarea data-ws="q7" class="ws-input" rows="3" placeholder="Write your answer here..."></textarea>
+      <p style="margin-bottom:.5rem;">6. Name two forms of money we use today that are NOT physical coins or bills:</p>
+      <textarea data-ws="q8" class="ws-input" rows="2" placeholder="Write your answer here..."></textarea>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🎮 Part 3: Barter Challenge</h3>
+      <p style="margin-bottom:.75rem;">You have 5 homemade cupcakes. List 3 things you might want to barter for them, and explain why each trade might be tricky.</p>
+      <table class="ws-table">
+        <thead><tr><th>What I Want to Trade For</th><th>Why This Trade Might Be Tricky</th></tr></thead>
+        <tbody>
+          <tr><td><input data-ws="barter1a" placeholder="Item 1" /></td><td><input data-ws="barter1b" placeholder="Difficulty..." /></td></tr>
+          <tr><td><input data-ws="barter2a" placeholder="Item 2" /></td><td><input data-ws="barter2b" placeholder="Difficulty..." /></td></tr>
+          <tr><td><input data-ws="barter3a" placeholder="Item 3" /></td><td><input data-ws="barter3b" placeholder="Difficulty..." /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>💭 Part 4: Reflection</h3>
+      <p style="margin-bottom:.5rem;">What's the most interesting thing you learned about money in Session 1?</p>
+      <textarea data-ws="reflect1" class="ws-input" rows="3" placeholder="I found it interesting that..."></textarea>
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session1');
+});
+</script>
+</body>
+</html>

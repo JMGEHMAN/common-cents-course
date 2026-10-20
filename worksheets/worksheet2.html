@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 2: Needs vs. Wants — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 2</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 2 of 10</div>
+    <h1>📝 Worksheet 2: Needs vs. Wants</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session2.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>📋 Part 1: Sort It Out</h3>
+      <p style="margin-bottom:.75rem;">Write each item in the correct column below.</p>
+      <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:.75rem;"><em>Items: New video game, Groceries, Designer jeans, Medicine, Bus fare to school, Movie tickets, Winter coat, Restaurant dinner, Electricity bill, Streaming subscription</em></p>
+      <table class="ws-table">
+        <thead><tr><th>✅ NEEDS</th><th>🌟 WANTS</th></tr></thead>
+        <tbody>
+          <tr><td><input data-ws="n1" placeholder="Need item 1" /></td><td><input data-ws="w1" placeholder="Want item 1" /></td></tr>
+          <tr><td><input data-ws="n2" placeholder="Need item 2" /></td><td><input data-ws="w2" placeholder="Want item 2" /></td></tr>
+          <tr><td><input data-ws="n3" placeholder="Need item 3" /></td><td><input data-ws="w3" placeholder="Want item 3" /></td></tr>
+          <tr><td><input data-ws="n4" placeholder="Need item 4" /></td><td><input data-ws="w4" placeholder="Want item 4" /></td></tr>
+          <tr><td><input data-ws="n5" placeholder="Need item 5" /></td><td><input data-ws="w5" placeholder="Want item 5" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>💰 Part 2: My Spending Inventory</h3>
+      <p style="margin-bottom:.75rem;">Think about what you spent money on (or wanted to spend money on) in the past month. List 6 things and label each as a Need (N) or Want (W).</p>
+      <table class="ws-table">
+        <thead><tr><th>Item I Spent/Wanted to Spend On</th><th>N or W?</th><th>Amount ($)</th></tr></thead>
+        <tbody>
+          <tr><td><input data-ws="sp1" placeholder="Item..." /></td><td><input data-ws="nw1" style="width:60px;" placeholder="N/W" /></td><td><input data-ws="amt1" style="width:80px;" placeholder="$" /></td></tr>
+          <tr><td><input data-ws="sp2" placeholder="Item..." /></td><td><input data-ws="nw2" style="width:60px;" placeholder="N/W" /></td><td><input data-ws="amt2" style="width:80px;" placeholder="$" /></td></tr>
+          <tr><td><input data-ws="sp3" placeholder="Item..." /></td><td><input data-ws="nw3" style="width:60px;" placeholder="N/W" /></td><td><input data-ws="amt3" style="width:80px;" placeholder="$" /></td></tr>
+          <tr><td><input data-ws="sp4" placeholder="Item..." /></td><td><input data-ws="nw4" style="width:60px;" placeholder="N/W" /></td><td><input data-ws="amt4" style="width:80px;" placeholder="$" /></td></tr>
+          <tr><td><input data-ws="sp5" placeholder="Item..." /></td><td><input data-ws="nw5" style="width:60px;" placeholder="N/W" /></td><td><input data-ws="amt5" style="width:80px;" placeholder="$" /></td></tr>
+          <tr><td><input data-ws="sp6" placeholder="Item..." /></td><td><input data-ws="nw6" style="width:60px;" placeholder="N/W" /></td><td><input data-ws="amt6" style="width:80px;" placeholder="$" /></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🧠 Part 3: Thinking Deeper</h3>
+      <p style="margin-bottom:.5rem;">Describe one time an advertiser made you feel like a want was actually a need. What was the product? How did they do it?</p>
+      <textarea data-ws="ad_story" class="ws-input" rows="4" placeholder="I remember when I saw an ad for..."></textarea>
+      <p style="margin-top:.75rem;margin-bottom:.5rem;">Name one want you COULD cut from your spending that would let you save more money:</p>
+      <input data-ws="cut_want" class="ws-input" placeholder="I could cut spending on..." />
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session2');
+});
+</script>
+</body>
+</html>

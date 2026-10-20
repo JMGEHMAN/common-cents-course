@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksheet 4: Saving & Goals — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div class="worksheet-page">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../worksheets.html">Worksheets</a><span class="sep">›</span>
+    <span>Worksheet 4</span>
+  </div>
+
+  <div class="worksheet-header">
+    <div class="badge badge-purple mb-1" style="display:inline-flex;background:rgba(255,255,255,.2);color:#fff;">Session 4 of 10</div>
+    <h1>📝 Worksheet 4: Saving & Goals</h1>
+    <p style="color:rgba(255,255,255,.85);margin-top:.5rem;">Complete this worksheet after reading the lesson. Answers are saved automatically!</p>
+  </div>
+
+  <div class="print-btn-wrap">
+    <a href="../sessions/session4.html" class="btn btn-outline btn-sm">← Back to Lesson</a>
+    <button id="printBtn" class="btn btn-primary btn-sm" style="margin-left:.5rem;">🖨️ Print Worksheet</button>
+    <button id="clearBtn" class="btn btn-sm" style="background:#f3f4f6;color:var(--text);margin-left:.5rem;">🗑️ Clear All</button>
+  </div>
+
+  <form id="worksheetForm">
+
+    <div class="worksheet-section">
+      <h3>🎯 Part 1: My SMART Savings Goals</h3>
+      <p style="margin-bottom:.75rem;">Set two savings goals — one short-term and one long-term — using the SMART framework.</p>
+      <div style="background:#ede9fe;border-radius:8px;padding:1rem;margin-bottom:1rem;">
+        <strong style="color:var(--primary-dk);">Short-Term Goal (within 6 months)</strong>
+        <table class="ws-table" style="margin-top:.75rem;">
+          <tbody>
+            <tr><td><strong>Specific:</strong> What exactly do I want?</td><td><input data-ws="st_spec" placeholder="I want to save for..." /></td></tr>
+            <tr><td><strong>Measurable:</strong> How much?</td><td><input data-ws="st_meas" placeholder="$" /></td></tr>
+            <tr><td><strong>Achievable:</strong> How much can I save/month?</td><td><input data-ws="st_ach" placeholder="$" /></td></tr>
+            <tr><td><strong>Time-Bound:</strong> By what date?</td><td><input data-ws="st_time" placeholder="Date..." /></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:#d1fae5;border-radius:8px;padding:1rem;">
+        <strong style="color:#065f46;">Long-Term Goal (1 year or more)</strong>
+        <table class="ws-table" style="margin-top:.75rem;">
+          <tbody>
+            <tr><td><strong>Specific:</strong> What exactly do I want?</td><td><input data-ws="lt_spec" placeholder="I want to save for..." /></td></tr>
+            <tr><td><strong>Measurable:</strong> How much?</td><td><input data-ws="lt_meas" placeholder="$" /></td></tr>
+            <tr><td><strong>Achievable:</strong> How much can I save/month?</td><td><input data-ws="lt_ach" placeholder="$" /></td></tr>
+            <tr><td><strong>Time-Bound:</strong> By what date?</td><td><input data-ws="lt_time" placeholder="Date..." /></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="worksheet-section">
+      <h3>🌱 Part 2: Compound Interest Exploration</h3>
+      <p style="margin-bottom:.5rem;">If you save $10 a month starting at age 12 in an account earning 5% annual interest, estimate how much you'd have at age 22. Use the calculator in Session 4, then write your answer:</p>
+      <textarea data-ws="compound_calc" class="ws-input" rows="2" placeholder="At age 22 I would have approximately $..."></textarea>
+      <p style="margin-top:.75rem;margin-bottom:.5rem;">What surprised you most about compound interest?</p>
+      <textarea data-ws="compound_reflect" class="ws-input" rows="2" placeholder="I was surprised that..."></textarea>
+    </div>
+
+  </form>
+
+  <div style="background:var(--border);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem;text-align:center;">
+    <p style="font-size:.88rem;color:var(--text-muted);">✅ Your answers are automatically saved in your browser. Print anytime for a physical copy!</p>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initWorksheet('session4');
+});
+</script>
+</body>
+</html>

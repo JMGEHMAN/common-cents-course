@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz 1: What Is Money? — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div style="max-width:800px;margin:2rem auto;padding:0 1.25rem;">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../quiz-hub.html">Quizzes</a><span class="sep">›</span>
+    <span>Quiz 1</span>
+  </div>
+
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <div class="badge badge-purple mb-1">Session 1 of 10</div>
+      <h1 style="font-size:1.6rem;">Quiz: What Is Money?</h1>
+      <p class="text-muted mt-1">5 questions · Select the best answer · Instant feedback</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-label">
+      <span id="quizProgressText">Question 1 of 5</span>
+      <span id="quizScore">Score: 0</span>
+    </div>
+    <div class="progress-wrap mb-2">
+      <div class="progress-bar" id="quizProgressBar" style="width:0%"></div>
+    </div>
+
+    <!-- Quiz card -->
+    <div id="quizCard" class="question-card">
+      <div class="question-text" id="questionText">Loading...</div>
+      <div class="options-list" id="optionsList"></div>
+      <div class="feedback-box" id="feedbackBox"></div>
+      <div style="margin-top:1.5rem;text-align:right;">
+        <button class="btn btn-primary" id="nextBtn" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Result card (hidden) -->
+    <div id="quizResult" class="quiz-result hidden">
+      <div class="score-circle">
+        <div class="score-num" id="scoreNum">0/5</div>
+        <div class="score-label">Score</div>
+      </div>
+      <div class="stars" id="scoreStars">⭐</div>
+      <h2>Quiz Complete! 🎉</h2>
+      <p id="scoreMsg" class="text-muted mt-1"></p>
+      <div class="mt-2" style="background:var(--border);border-radius:var(--radius-sm);padding:1rem;">
+        <div class="progress-label"><span>Your Score</span><span id="resultPct">0%</span></div>
+        <div class="progress-wrap"><div class="progress-bar" id="quizProgressBar2" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+        <button class="btn btn-outline" id="restartQuiz">🔄 Try Again</button>
+        <a href="../sessions/session1.html" class="btn btn-primary">← Back to Lesson</a>
+        <a href="../sessions/session2.html" class="btn btn-accent">Next Session →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+const questions = [{question:"What was the main problem with the barter system?",options:["Money was too heavy to carry", "Finding someone who had what you wanted AND wanted what you had", "Bartering was illegal in many countries", "Goods could not be exchanged for services"],correct:1,explanation:"The 'double coincidence of wants' made barter very hard — both parties had to want exactly what the other offered."},
+    {question:"What does 'fiat money' mean?",options:["Money made from gold and silver", "Money printed on special paper", "Money that has value because the government says it does", "Money used in ancient Rome"],correct:2,explanation:"Fiat money has value by government decree — not because of what it's physically made of."},
+    {question:"Which of these is NOT one of the three main functions of money?",options:["Medium of exchange", "Store of value", "Unit of account", "Source of happiness"],correct:3,explanation:"The three functions of money are: medium of exchange, store of value, and unit of account. Happiness is not a financial function!"},
+    {question:"Approximately what percentage of all money in the world exists as physical cash?",options:["50%", "30%", "15%", "Less than 10%"],correct:3,explanation:"Less than 8% of global money exists as physical cash. Most money is digital numbers in bank computer systems."},
+    {question:"The word 'salary' comes from the Latin word for what substance?",options:["Gold", "Silver", "Salt", "Silk"],correct:2,explanation:"Salary comes from 'sal' (salt). Roman soldiers were sometimes paid in salt because it was so valuable as a preservative."}];
+
+// Patch score display
+const origInit = window.initQuiz;
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(questions, 1);
+  // sync second progress bar with result
+  const bar2 = document.getElementById('quizProgressBar2');
+  const obs = new MutationObserver(() => {
+    const pct = document.getElementById('resultPct')?.textContent;
+    if (bar2 && pct) bar2.style.width = pct;
+  });
+  obs.observe(document.getElementById('quizResult') || document.body, {subtree:true, characterData:true, childList:true});
+  
+  // Update score display on each answer
+  document.getElementById('optionsList')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const scoreEl = document.getElementById('quizScore');
+      if (scoreEl) {
+        // count correct answers from feedback boxes
+        const correct = document.querySelectorAll('.option-btn.correct').length;
+      }
+    }, 100);
+  });
+});
+</script>
+</body>
+</html>

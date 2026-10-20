@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz 7: Earning Money — Money Matters</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span>💰</span> Money Matters</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="../index.html#sessions">📚 Sessions</a></li>
+      <li><a href="../dashboard.html">📊 Dashboard</a></li>
+      <li><a href="../quiz-hub.html">🎯 Quizzes</a></li>
+      <li><a href="../worksheets.html">📝 Worksheets</a></li>
+    </ul>
+    <span class="nav-progress-pill" id="navProgress">0/10 Sessions</span>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../index.html#sessions">📚 Sessions</a>
+    <a href="../dashboard.html">📊 Dashboard</a>
+    <a href="../quiz-hub.html">🎯 Quizzes</a>
+    <a href="../worksheets.html">📝 Worksheets</a>
+  </div>
+</nav>
+
+<div style="max-width:800px;margin:2rem auto;padding:0 1.25rem;">
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span class="sep">›</span>
+    <a href="../quiz-hub.html">Quizzes</a><span class="sep">›</span>
+    <span>Quiz 7</span>
+  </div>
+
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <div class="badge badge-purple mb-1">Session 7 of 10</div>
+      <h1 style="font-size:1.6rem;">Quiz: Earning Money</h1>
+      <p class="text-muted mt-1">5 questions · Select the best answer · Instant feedback</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-label">
+      <span id="quizProgressText">Question 1 of 5</span>
+      <span id="quizScore">Score: 0</span>
+    </div>
+    <div class="progress-wrap mb-2">
+      <div class="progress-bar" id="quizProgressBar" style="width:0%"></div>
+    </div>
+
+    <!-- Quiz card -->
+    <div id="quizCard" class="question-card">
+      <div class="question-text" id="questionText">Loading...</div>
+      <div class="options-list" id="optionsList"></div>
+      <div class="feedback-box" id="feedbackBox"></div>
+      <div style="margin-top:1.5rem;text-align:right;">
+        <button class="btn btn-primary" id="nextBtn" disabled>Next Question →</button>
+      </div>
+    </div>
+
+    <!-- Result card (hidden) -->
+    <div id="quizResult" class="quiz-result hidden">
+      <div class="score-circle">
+        <div class="score-num" id="scoreNum">0/5</div>
+        <div class="score-label">Score</div>
+      </div>
+      <div class="stars" id="scoreStars">⭐</div>
+      <h2>Quiz Complete! 🎉</h2>
+      <p id="scoreMsg" class="text-muted mt-1"></p>
+      <div class="mt-2" style="background:var(--border);border-radius:var(--radius-sm);padding:1rem;">
+        <div class="progress-label"><span>Your Score</span><span id="resultPct">0%</span></div>
+        <div class="progress-wrap"><div class="progress-bar" id="quizProgressBar2" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+        <button class="btn btn-outline" id="restartQuiz">🔄 Try Again</button>
+        <a href="../sessions/session7.html" class="btn btn-primary">← Back to Lesson</a>
+        <a href="../sessions/session8.html" class="btn btn-accent">Next Session →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container"><div class="footer-logo">💰 Money Matters</div><p>Financial literacy for the next generation.</p></div></footer>
+
+<script src="../scripts/app.js"></script>
+<script>
+const questions = [{question:"What is 'passive income'?",options:["Money earned from a part-time job", "Income you earn even when not actively working", "A lower tax rate on investments", "Money received from the government"],correct:1,explanation:"Passive income — like rent, dividends, or royalties — continues flowing in without active ongoing work. Building passive income is a key wealth strategy."},
+    {question:"What is the difference between gross pay and net pay?",options:["Gross is net after taxes; net is total earnings", "Gross is total earnings; net is what you take home after deductions", "Gross is hourly pay; net is salary", "There is no difference — they're the same"],correct:1,explanation:"Gross pay is what you earn before taxes and deductions. Net pay (take-home pay) is what actually hits your bank account after taxes."},
+    {question:"Which of these is an example of entrepreneurship?",options:["Working a shift at a fast food restaurant", "Getting a babysitting job from a neighbor", "Starting your own lawn-care business and hiring friends", "Receiving an allowance from your parents"],correct:2,explanation:"Entrepreneurship means creating and running your own business. Starting a lawn-care company — hiring others, managing clients — is entrepreneurship."},
+    {question:"Why is it important to know about taxes before starting a job?",options:["So you can avoid paying them", "So you know how much of your paycheck you'll actually receive", "To calculate how much to charge customers", "Teens don't pay taxes, so it doesn't matter"],correct:1,explanation:"Knowing your tax rate helps you plan — your net (take-home) pay is 20-30% less than gross. Budget based on what you actually receive!"},
+    {question:"Which income type continues even while you sleep?",options:["Active income", "Hourly wage", "Passive income", "Commission-based income"],correct:2,explanation:"Passive income — from investments, rentals, content creation, etc. — keeps generating money without requiring your active presence."}];
+
+// Patch score display
+const origInit = window.initQuiz;
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(questions, 7);
+  // sync second progress bar with result
+  const bar2 = document.getElementById('quizProgressBar2');
+  const obs = new MutationObserver(() => {
+    const pct = document.getElementById('resultPct')?.textContent;
+    if (bar2 && pct) bar2.style.width = pct;
+  });
+  obs.observe(document.getElementById('quizResult') || document.body, {subtree:true, characterData:true, childList:true});
+  
+  // Update score display on each answer
+  document.getElementById('optionsList')?.addEventListener('click', () => {
+    setTimeout(() => {
+      const scoreEl = document.getElementById('quizScore');
+      if (scoreEl) {
+        // count correct answers from feedback boxes
+        const correct = document.querySelectorAll('.option-btn.correct').length;
+      }
+    }, 100);
+  });
+});
+</script>
+</body>
+</html>
